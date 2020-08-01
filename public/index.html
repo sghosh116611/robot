@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>WiFi Controlled Robot</title>
+	</head>
+	<body>
+	
+	<h2> <i> WiFi Controlled Robot using Arduino and ESP8266 </i> </h2>
+	<h5> <i> by ElectronicsHub.org </i> </h5>
+	
+	<button id="FWD" class="robot">FORWARD</button> 
+	<button id="REV" class="robot">REVERSE</button> 
+	<button id="RGT" class="robot">RIGHT</button> 
+	<button id="LFT" class="robot">LEFT</button> 
+	<button id="STP" class="robot">STOP</button> 
+		
+	<script src="./jQuery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$(".robot").click(function()
+			{
+				var cmd = $(this).attr('id'); 
+				$.get("http://192.168.1.254:80/", {robot:cmd}); 
+			});
+		});
+	</script>
+	</body>
+</html>
